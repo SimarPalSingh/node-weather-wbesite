@@ -4,6 +4,7 @@ const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 const app = express()
+const port = process.env.PORT || 3000
 
 // DEfine paths for express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -102,8 +103,9 @@ app.get('*', (req, res) => {
 })
 //app.com
 //app.com/help
-//app.com/about
+//app.com/about 
 
-app.listen(3000, () => {
-    console.log('app listening on port 3000')
+// 3000 port locally but heroku provides the value using environment variable
+app.listen(port, () => {
+    console.log('app listening on port ' + port)
 })
